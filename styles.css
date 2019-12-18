@@ -74,3 +74,23 @@ body {
 .hidden {
   display: none;
 }
+
+#footer {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+@media (max-width: 1084px) {
+  #level-title {
+    font-size: 2rem;
+  }
+  .container {
+    width: 100%;
+  }
+  .custbtn {
+    border: none;
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+  }
+}

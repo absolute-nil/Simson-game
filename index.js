@@ -11,7 +11,9 @@ var n = 4;
 $(document).keypress(function() {
   if (!started) {
     $(".start").slideToggle();
-    nextSequence();
+    setTimeout(function() {
+      nextSequence();
+    }, 100);
     started = true;
   }
 });
@@ -32,10 +34,10 @@ $(".levelUp").click(function() {
     $(".start").hide();
     $(".levelUp").hide();
     $(".levelDown").hide();
+    n = n + 2;
+    $(".voilet").slideToggle();
+    $(".orange").slideToggle();
     setTimeout(function() {
-      n = n + 2;
-      $(".voilet").slideToggle();
-      $(".orange").slideToggle();
       nextSequence();
     }, 1000);
     started = true;
@@ -46,10 +48,10 @@ $(".levelDown").click(function() {
     $(".start").hide();
     $(".levelUp").hide();
     $(".levelDown").hide();
+    n = n - 2;
+    $(".voilet").slideToggle();
+    $(".orange").slideToggle();
     setTimeout(function() {
-      n = n - 2;
-      $(".voilet").slideToggle();
-      $(".orange").slideToggle();
       nextSequence();
     }, 1000);
     started = true;
@@ -115,7 +117,7 @@ function gameOver() {
         .removeClass("game-over")
         .dequeue();
     });
-  if (n > 4) {
+  if (n > 10) {
     $("h1").text("Game-Over! Press Any Key To Restart Or Press Start");
     $(".start").toggle();
     $(".levelDown").toggle();
