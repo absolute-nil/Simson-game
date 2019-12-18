@@ -2,20 +2,55 @@ $(".info-btn").on("click", function() {
   $("div.information").toggle();
 });
 
-var buttonColors = ["red", "blue", "green", "yellow"];
+var buttonColors = ["red", "blue", "green", "yellow", "voilet", "orange"];
 var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var started = false;
-
+n = 4;
 $(document).keypress(function() {
   if (!started) {
+    $(".start").slideToggle();
     nextSequence();
     started = true;
   }
 });
 
-$(".btn").click(function() {
+$(".start").click(function() {
+  if (!started) {
+    $(".start").slideToggle();
+    setTimeout(function() {
+      nextSequence();
+    }, 1000);
+    started = true;
+  }
+});
+$(".levelUp").click(function() {
+  if (!started) {
+    $(".levelUp").slideToggle();
+    setTimeout(function() {
+      n = n + 2;
+      $(".voilet").slideIn();
+      $(".orange").slideIn();
+      nextSequence();
+    }, 1000);
+    started = true;
+  }
+});
+$(".levelDown").click(function() {
+  if (!started) {
+    $(".levelDown").slideToggle();
+    setTimeout(function() {
+      n = n - 2;
+      $(".voilet").slideOut();
+      $(".orange").slideOut();
+      nextSequence();
+    }, 1000);
+    started = true;
+  }
+});
+
+$(".custbtn").click(function() {
   var userChoosenColor = $(this).attr("id");
   userClickedPattern.push(userChoosenColor);
   playSound(userChoosenColor);
@@ -38,7 +73,7 @@ function nextSequence() {
   userClickedPattern = [];
   level++;
   $("#level-title").text("level: " + level);
-  var randomNummber = Math.floor(Math.random() * 4);
+  var randomNummber = Math.floor(Math.random() * n);
   var randomColor = buttonColors[randomNummber];
   gamePattern.push(randomColor);
   playSound(randomColor);
@@ -74,8 +109,22 @@ function gameOver() {
         .removeClass("game-over")
         .dequeue();
     });
-  $("h1").text("Game-Over! Press Any Key To Restart");
-  startOver();
+  if (level > 4) {
+    $("h1").text("Game-Over! Press Any Key To Restart Or Press Start");
+    $(".start").slideIn();
+    $(".levelDown").slideIn();
+    startOver();
+  }
+
+  if (level >= 10 && level == 4) {
+    $("h1").text("congratulations! You unlocked the next level");
+    $(".start").slideIn();
+    $(".levelUp").slideIn();
+    startOver();
+  } else {
+    $("h1").text("Game-Over! Press Any Key To Restart Or Press Start");
+    startOver();
+  }
 }
 
 function startOver() {

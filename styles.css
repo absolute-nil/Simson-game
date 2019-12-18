@@ -16,13 +16,21 @@ body {
   margin: auto;
 }
 
-.btn {
+.custbtn {
   margin: 25px;
   display: inline-block;
   height: 200px;
   width: 200px;
   border: 10px solid black;
   border-radius: 20%;
+}
+
+.levelUp {
+  visibility: hidden;
+}
+
+.levelDown {
+  visibility: hidden;
 }
 
 .game-over {
@@ -32,10 +40,12 @@ body {
 
 .red {
   background-color: red;
+  margin-top: 0%;
 }
 
 .green {
   background-color: green;
+  margin-top: 0%;
 }
 
 .blue {
@@ -44,6 +54,15 @@ body {
 
 .yellow {
   background-color: yellow;
+}
+
+.voilet {
+  background-color: indigo;
+  visibility: hidden;
+}
+.orange {
+  background-color: orange;
+  visibility: hidden;
 }
 
 .pressed {
