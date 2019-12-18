@@ -1,5 +1,5 @@
 $(".info-btn").on("click", function() {
-  $("div.information").toggle();
+  $("div.information").slideToggle();
 });
 
 var buttonColors = ["red", "blue", "green", "yellow", "voilet", "orange"];
@@ -7,7 +7,7 @@ var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var started = false;
-n = 4;
+var n = 4;
 $(document).keypress(function() {
   if (!started) {
     $(".start").slideToggle();
@@ -19,6 +19,8 @@ $(document).keypress(function() {
 $(".start").click(function() {
   if (!started) {
     $(".start").slideToggle();
+    $(".levelUp").hide();
+    $(".levelDown").hide();
     setTimeout(function() {
       nextSequence();
     }, 1000);
@@ -27,11 +29,13 @@ $(".start").click(function() {
 });
 $(".levelUp").click(function() {
   if (!started) {
-    $(".levelUp").slideToggle();
+    $(".start").hide();
+    $(".levelUp").hide();
+    $(".levelDown").hide();
     setTimeout(function() {
       n = n + 2;
-      $(".voilet").slideIn();
-      $(".orange").slideIn();
+      $(".voilet").slideToggle();
+      $(".orange").slideToggle();
       nextSequence();
     }, 1000);
     started = true;
@@ -39,11 +43,13 @@ $(".levelUp").click(function() {
 });
 $(".levelDown").click(function() {
   if (!started) {
-    $(".levelDown").slideToggle();
+    $(".start").hide();
+    $(".levelUp").hide();
+    $(".levelDown").hide();
     setTimeout(function() {
       n = n - 2;
-      $(".voilet").slideOut();
-      $(".orange").slideOut();
+      $(".voilet").slideToggle();
+      $(".orange").slideToggle();
       nextSequence();
     }, 1000);
     started = true;
@@ -109,21 +115,22 @@ function gameOver() {
         .removeClass("game-over")
         .dequeue();
     });
-  if (level > 4) {
+  if (n > 4) {
     $("h1").text("Game-Over! Press Any Key To Restart Or Press Start");
-    $(".start").slideIn();
-    $(".levelDown").slideIn();
-    startOver();
-  }
-
-  if (level >= 10 && level == 4) {
-    $("h1").text("congratulations! You unlocked the next level");
-    $(".start").slideIn();
-    $(".levelUp").slideIn();
+    $(".start").toggle();
+    $(".levelDown").toggle();
     startOver();
   } else {
-    $("h1").text("Game-Over! Press Any Key To Restart Or Press Start");
-    startOver();
+    if (level >= 2 && n == 4) {
+      $("h1").text("congratulations! You unlocked the next level");
+      $(".start").slideToggle();
+      $(".levelUp").slideToggle();
+      startOver();
+    } else {
+      $("h1").text("Game-Over! Press Any Key To Restart Or Press Start");
+      $(".start").slideToggle();
+      startOver();
+    }
   }
 }
 

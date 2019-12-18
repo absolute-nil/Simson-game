@@ -25,14 +25,6 @@ body {
   border-radius: 20%;
 }
 
-.levelUp {
-  visibility: hidden;
-}
-
-.levelDown {
-  visibility: hidden;
-}
-
 .game-over {
   background-color: red;
   opacity: 0.8;
@@ -40,12 +32,10 @@ body {
 
 .red {
   background-color: red;
-  margin-top: 0%;
 }
 
 .green {
   background-color: green;
-  margin-top: 0%;
 }
 
 .blue {
@@ -58,11 +48,9 @@ body {
 
 .voilet {
   background-color: indigo;
-  visibility: hidden;
 }
 .orange {
   background-color: orange;
-  visibility: hidden;
 }
 
 .pressed {
@@ -81,4 +69,8 @@ body {
 
 .info-btn {
   border: 10px solid black;
+}
+
+.hidden {
+  display: none;
 }
