@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simon</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="res/main.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+
+  </head>
+
+  <body>
+      <button class="information info-btn">Information</button>  
+      <div class="information">
+          <img
+          class="welcome_img"
+          src="res/welcome.png"
+          alt="welcome"
+          width="150px"
+          height="150px"
+          />
+    <div class="Header">
+        <h2>Hey! I'm Nikhil.</h2>
+    <h2 id="subtitle">I am here with the Simson Game</h2>   
+    <div>
+      <p>Hey there! This is a Simon Game. If you dont know how to play here are the instrutions:
+        <br>
+        <ul>
+          <li>You can press any key on the keyboard to start playing.</li>
+          <li>Once the game starts. One of the four colored box will blink and make a sound.</li>
+          <li>You have to click on the same block that blinked to move on the next level.</li>
+          <li>You have to remember the sequence of the blinks that happend and click on the exact same pattern.</li>
+          <li>for example: if on level 1 red blinked, level 2 yellow blinked <br>then in level one you have to click on red and on level 2 you have to click on red then yellow </li>
+          <li>Level indicates the number of blocks in the pattern</li>
+          <li>Once you loose you can easily restart the game by clicking any key</li>
+          <li>All the best!</li>
+        </ul>
+      </p>
+    </div>
+    </div>
+  </div>
+    <h1 id="level-title">Press A Key to Start</h1>
+    <div class="container">
+      <div class="row">
+        <div type="button" id="green" class="btn green"></div>
+
+        <div type="button" id="red" class="btn red"></div>
+      </div>
+
+      <div class="row">
+        <div type="button" id="yellow" class="btn yellow"></div>
+        <div type="button" id="blue" class="btn blue"></div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
