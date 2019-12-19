@@ -117,20 +117,20 @@ function gameOver() {
         .removeClass("game-over")
         .dequeue();
     });
-  if (n > 10) {
+  if (n > 4) {
     $("h1").text("Game-Over! Press Any Key To Restart Or Press Start");
-    $(".start").toggle();
-    $(".levelDown").toggle();
+    $(".start").slideDown();
+    $(".levelDown").slideDown();
     startOver();
   } else {
-    if (level >= 2 && n == 4) {
+    if (level >= 10 && n == 4) {
       $("h1").text("congratulations! You unlocked the next level");
-      $(".start").slideToggle();
-      $(".levelUp").slideToggle();
+      $(".start").slideDown();
+      $(".levelUp").slideDown();
       startOver();
     } else {
       $("h1").text("Game-Over! Press Any Key To Restart Or Press Start");
-      $(".start").slideToggle();
+      $(".start").slideDown();
       startOver();
     }
   }
